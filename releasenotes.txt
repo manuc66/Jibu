@@ -1,0 +1,64 @@
+---------------------------------------------
+          Jibu for .NET, 1.0 RC3          
+               Release Notes
+---------------------------------------------
+
+Contents:
+
+	* System Requirements
+	* Changes
+	* Known Issues
+	* Technical Support
+	* License Agreement
+
+
+System Requirements
+-------------------
+
+Minimum:
+	Windows 2000, XP or Vista
+	Microsoft .NET 2.0 or later
+	
+Recommended:
+	Windows XP or Vista
+	Microsoft .NET 2.0 or later
+	Computer with 2 or more cores/CPUs.
+
+Changes
+-------
+
+RC3:
+	A major performance optimization of the task scheduler.
+	Added some new sample projects.
+
+RC2: 
+	Task interfaces have been removed.
+	Worker renamed to Task.
+	Future and Async are now abstract classes.
+	DelegateFuture and DelagateAsync have been added.
+
+
+Known Issues
+------------
+
+
+Technical Support
+-----------------
+
+Technical support is available through our forum at the following address:
+
+http://www.axon7.com/flx/forum/
+
+Bug-reports, feature-requests and suggestions are more than welcome. To submit these, 
+please use the contact form on our web-site:
+
+http://www.axon7.com/flx/contact/
+
+
+License Agreement
+-----------------
+
+The End User License Agreement (EULA) is distributed with Jibu, in the file 'EULA.rtf'.
+The EULA is also available on our web-site:
+
+http://www.axon7.com/flx/axon7/end_user_license_agreement/

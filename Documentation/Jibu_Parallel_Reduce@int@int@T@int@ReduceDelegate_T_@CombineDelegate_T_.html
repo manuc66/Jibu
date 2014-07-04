@@ -1,0 +1,266 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
+<html>
+<head>
+<title>Parallel.Reduce Method (int, int, T, int, ReduceDelegate&lt;T&gt;, CombineDelegate&lt;T&gt;)</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Doc-O-Matic" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <link rel="STYLESHEET" href="default.css" type="text/css" />
+
+<script type="text/javascript" src="scripts.js"></script>
+</head>
+<body class="Element700" onload="onBodyLoadEx('frames.html', 'topic', 'Jibu_Parallel_Reduce@int@int@T@int@ReduceDelegate_T_@CombineDelegate_T_.html');" onmousedown="onBodyMouseDown();">
+
+<!-- Begin Popups -->
+
+<!-- End Popups -->
+
+<!-- Begin Page Header -->
+<div class="Element710" id="areafixed">
+<div class="Element94">
+<em>You are here:</em> Symbol Reference &gt; <a href="Jibu.html" target="topic">Jibu Namespace</a> &gt; <a href="Jibu_Parallel.html" target="topic">Parallel Class</a> &gt; <a href="!!MEMBERTYPE_Methods_Jibu_Parallel.html" target="topic">Parallel Methods</a> &gt; <a href="!!OVERLOADED_Reduce_Jibu_Parallel.html" target="topic">Reduce Method</a> &gt; <a href="Jibu_Parallel_Reduce@int@int@T@int@ReduceDelegate_T_@CombineDelegate_T_.html" target="topic">Reduce Method (int, int, T, int, ReduceDelegate&lt;T&gt;, CombineDelegate&lt;T&gt;)</a></div>
+<div class="Element92">
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr><td width="33%">
+<div class="Element1">
+Jibu for .NET</div>
+</td><td width="34%">
+<div class="Element2">
+<a href="contents.html" target="tocidx"><img src="btn_globals_contents_midblue.gif" border="0" alt="Contents" title="Contents" onmouseover="switchImage(this, 'btn_globals_contents_midblue_hover.gif');" onmouseout="switchImage(this, 'btn_globals_contents_midblue.gif');"></a><a href="idx.html" target="tocidx"><img src="btn_globals_index_midblue.gif" border="0" alt="Index" title="Index" onmouseover="switchImage(this, 'btn_globals_index_midblue_hover.gif');" onmouseout="switchImage(this, 'btn_globals_index_midblue.gif');"></a><a href="index.html" target="topic"><img src="btn_globals_home_midblue.gif" border="0" alt="Home" title="Home" onmouseover="switchImage(this, 'btn_globals_home_midblue_hover.gif');" onmouseout="switchImage(this, 'btn_globals_home_midblue.gif');"></a></div>
+</td><td width="33%">
+<div class="Element90">
+<a href="Jibu_Parallel_Reduce@int@int@T@ReduceDelegate_T_@CombineDelegate_T_.html" target="topic"><img src="btn_prev_midblue.gif" border="0" alt="Previous" title="Previous" onmouseover="switchImage(this, 'btn_prev_midblue_hover.gif');" onmouseout="switchImage(this, 'btn_prev_midblue.gif');"></a><a href="!!OVERLOADED_Reduce_Jibu_Parallel.html" target="topic"><img src="btn_up_midblue.gif" border="0" alt="Up" title="Up" onmouseover="switchImage(this, 'btn_up_midblue_hover.gif');" onmouseout="switchImage(this, 'btn_up_midblue.gif');"></a><a href="Jibu_Parallel_Run@params_Async[].html" target="topic"><img src="btn_next_midblue.gif" border="0" alt="Next" title="Next" onmouseover="switchImage(this, 'btn_next_midblue_hover.gif');" onmouseout="switchImage(this, 'btn_next_midblue.gif');"></a></div>
+</td></tr></table><div class="Element5">
+Parallel.Reduce Method (int, int, T, int, ReduceDelegate&lt;T&gt;, CombineDelegate&lt;T&gt;)</div>
+<div class="Element7">
+<a href="Jibu_Parallel.html" target="topic">Parallel Class</a>&nbsp; <a href="!!MEMBEROVERVIEW_Jibu_Parallel.html" target="topic">Parallel Members</a>&nbsp; <a href="Jibu.html" target="topic">Jibu Namespace</a>&nbsp; <a href="_Jibu_Parallel_Reduce@int@int@T@int@ReduceDelegate_T_@CombineDelegate_T__3_Parallel_Reduce_Example.html" target="topic">Parallel Reduce Example</a>&nbsp; <a href="Jibu_Parallel_Reduce@int@int@T@int@ReduceDelegate_T_@CombineDelegate_T_.html#53656520416C736F" target="topic">See Also</a></div>
+<div class="Element731">
+<div class="Element730">
+<a href="#" onclick="ToggleAllElements('52656D61726B73,457863657074696F6E73,506172616C6C656C20526564756365204578616D706C65,53656520416C736F', 'linkToggleAllElements', 'imgToggleAllElements', 'Collapse All', 'Expand All');"><img src="btn_collapse.gif" border="0" alt="" title="" id="imgToggleAllElements"></a><a href="#" id="linkToggleAllElements" onclick="ToggleAllElements('52656D61726B73,457863657074696F6E73,506172616C6C656C20526564756365204578616D706C65,53656520416C736F', 'linkToggleAllElements', 'imgToggleAllElements', 'Collapse All', 'Expand All');">Collapse All</a></div>
+</div>
+</div>
+</div>
+
+<!-- End Page Header -->
+
+<!-- Begin Client Area -->
+<div class="Element720" id="areascroll">
+<div class="Element721">
+
+<!-- Begin Page Content -->
+<a name="PageContent"></a><div class="Element58">
+<a name="53756D6D617279"></a><div class="Element11">
+<div class="Element10">
+<p class="Element10">
+Calculates and combines values to a single value. </p></div>
+</div>
+<a name="432B2B"></a><div class="Element99">
+C++</div>
+<div class="Element101"><div class="Element100"><pre class="Element100"><strong><span style="color: #008000">public</span></strong>: T <strong><span style="color: #660000"><strong><span style="color: #660000">Reduce</span></strong></strong>&lt;T&gt;(
+    <strong><span style="color: #008000">int</span></strong> <strong><span style="color: #800080">start</span></strong>, 
+    <strong><span style="color: #008000">int</span></strong> <strong><span style="color: #800080">end</span></strong>, 
+    T <strong><span style="color: #800080">initialValue</span></strong>, 
+    <strong><span style="color: #008000">int</span></strong> <strong><span style="color: #800080">grainSize</span></strong>, 
+    <a href="Jibu_ReduceDelegate.html" target="topic">ReduceDelegate</a>&lt;T&gt; <strong><span style="color: #800080">loopbody</span></strong>, 
+    <a href="Jibu_CombineDelegate.html" target="topic">CombineDelegate</a>&lt;T&gt; <strong><span style="color: #800080">combineMethod</span></strong>
+);</pre></div></div>
+<a name="4323"></a><div class="Element99">
+C#</div>
+<div class="Element101"><div class="Element100"><pre class="Element100"><strong><span style="color: #008000">public</span></strong> <strong><span style="color: #008000">static</span></strong> T <strong><span style="color: #660000"><strong><span style="color: #660000">Reduce</span></strong></strong>&lt;T&gt;(
+    <strong><span style="color: #008000">int</span></strong> <strong><span style="color: #800080">start</span></strong>, 
+    <strong><span style="color: #008000">int</span></strong> <strong><span style="color: #800080">end</span></strong>, 
+    T <strong><span style="color: #800080">initialValue</span></strong>, 
+    <strong><span style="color: #008000">int</span></strong> <strong><span style="color: #800080">grainSize</span></strong>, 
+    <a href="Jibu_ReduceDelegate.html" target="topic">ReduceDelegate</a>&lt;T&gt; <strong><span style="color: #800080">loopbody</span></strong>, 
+    <a href="Jibu_CombineDelegate.html" target="topic">CombineDelegate</a>&lt;T&gt; <strong><span style="color: #800080">combineMethod</span></strong>
+);</pre></div></div>
+<a name="56697375616C204261736963"></a><div class="Element99">
+Visual Basic</div>
+<div class="Element101"><div class="Element100"><pre class="Element100"><strong><span style="color: #008000">Public</span></strong> <strong><span style="color: #008000">static</span></strong> <strong><span style="color: #008000">Function</span></strong> <strong><span style="color: #660000"><strong><span style="color: #660000">Reduce</span></strong></strong>(<strong><span style="color: #008000">Of</span></strong> T)(
+    <strong><span style="color: #800080">start</span></strong> <strong><span style="color: #008000">As</span></strong> <strong><span style="color: #008000">Integer</span></strong>, 
+    <strong><span style="color: #800080"><strong><span style="color: #008000">end</span></strong></strong> <strong><span style="color: #008000">As</span></strong> <strong><span style="color: #008000">Integer</span></strong>, 
+    <strong><span style="color: #800080">initialValue</span></strong> <strong><span style="color: #008000">As</span></strong> T, 
+    <strong><span style="color: #800080">grainSize</span></strong> <strong><span style="color: #008000">As</span></strong> <strong><span style="color: #008000">Integer</span></strong>, 
+    <strong><span style="color: #800080">loopbody</span></strong> <strong><span style="color: #008000">As</span></strong> <a href="Jibu_ReduceDelegate.html" target="topic">ReduceDelegate</a>&lt;T&gt;, 
+    <strong><span style="color: #800080">combineMethod</span></strong> <strong><span style="color: #008000">As</span></strong> <a href="Jibu_CombineDelegate.html" target="topic">CombineDelegate</a>&lt;T&gt;
+) <strong><span style="color: #008000">As</span></strong> T</pre></div></div>
+<a name="506172616D6574657273"></a><div class="Element14">
+Parameters</div>
+<div class="Element11">
+<div class="Element10">
+<p class="Element10">
+<div class="Element248">
+<div class="Element249">
+start</div>
+</div>
+<div class="Element250">
+<div class="Element251">
+First index, which is incremented by one until it equals end.</div>
+</div>
+<div class="Element248">
+<div class="Element249">
+end</div>
+</div>
+<div class="Element250">
+<div class="Element251">
+Last index, which is not included in the loop. The loop runs as long as start is less than end.</div>
+</div>
+<div class="Element248">
+<div class="Element249">
+initialValue</div>
+</div>
+<div class="Element250">
+<div class="Element251">
+The initial value for the result.</div>
+</div>
+<div class="Element248">
+<div class="Element249">
+grainSize</div>
+</div>
+<div class="Element250">
+<div class="Element251">
+A reasonable number of iterations in each task</div>
+</div>
+<div class="Element248">
+<div class="Element249">
+loopbody</div>
+</div>
+<div class="Element250">
+<div class="Element251">
+A delegate containing the work. Loopbody is executed once for each iteration.</div>
+</div>
+<div class="Element248">
+<div class="Element249">
+combineMethod</div>
+</div>
+<div class="Element250">
+<div class="Element251">
+A delegate used to combine the local results</div>
+</div>
+<div class="Element248">
+<div class="Element249">
+T</div>
+</div>
+<div class="Element250">
+<div class="Element251">
+A type that must be associative</div>
+</div>
+</p></div>
+</div>
+<a name="52657475726E73"></a><div class="Element14">
+Returns</div>
+<div class="Element11">
+<div class="Element10">
+<p class="Element10">
+A single value of type T</p></div>
+</div>
+<a name="52656D61726B73"></a><div class="Element14">
+<a onclick="toggleVisibilityStored('52656D61726B73');" class="a_Element14"><img src="btn_collapse_large.gif" border="0" alt="" title="" id="img52656D61726B73">Remarks</a></div>
+<div id="div52656D61726B73">
+<div class="Element11">
+<div class="Element10">
+<p class="Element10">
+Parallel.Reduce combines multiple associative values into a single value. The <a href="Jibu_ReduceDelegate.html" target="topic">ReduceDelegate</a> loopbody takes an integer between start and end and returns an element of type T. The <a href="Jibu_CombineDelegate.html" target="topic">CombineDelegate</a> takes two such elements and combine them. &nbsp;</p>
+<p class="Element10">
+Parallel.Reduce avoids using locks by dividing the problem into a binary task tree where each task updates it's own local value.&nbsp;</p>
+<p class="Element10">
+GrainSize specifies a reasonable number of iterations in each task. If the number of iterations is more than grainSize, data is split in two and handled separately. Adjusting the grain size can lead to better performance, but the optimal grain size depends on the problem at hand. Increasing the grain size will decrease the amount of tasks, and thus decrease the overhead of setting up tasks. But a small amount of tasks could introduce some load balancing problems, if no tasks are available for free processors. Decreasing the grain size will increase the amount of tasks and thereby ensure better load balancing, but on the other hand it will also increase the overhead of setting up tasks.&nbsp;</p>
+<p class="Element10">
+Parallel.Reduce catches any uncaught exception raised inside the tasks. Once the exception is caught Parallel.Reduce cancels all running tasks that it has started and throws a <a href="Jibu_CancelException.html" target="topic">Jibu.CancelException</a>, containing the original exception. <a href="Jibu.html" target="topic">Jibu</a> cancels all tasks but it doesn't just brutally stop them - the user defined code must detect and handle the cancellation. <a href="Jibu_Parallel_For@int@int@LoopDelegate.html" target="topic">For</a> more information on cancellation see <a href="Jibu_Task_Cancel.html" target="topic">Jibu.Task.Cancel</a> and <a href="Jibu_CancelException.html" target="topic">Jibu.CancelException</a> </p></div>
+</div>
+</div>
+<a name="457863657074696F6E73"></a><div class="Element14">
+<a onclick="toggleVisibilityStored('457863657074696F6E73');" class="a_Element14"><img src="btn_collapse_large.gif" border="0" alt="" title="" id="img457863657074696F6E73">Exceptions</a></div>
+<div id="div457863657074696F6E73">
+<div class="Element11">
+<div class="Element10">
+<div class="Element312">
+<div class="TableDiv">
+<table cellspacing="0" class="Table2">
+<tr>
+<td class="Element300" valign="top" width="50%">
+<div class="Element301">
+Exceptions&nbsp;</div></td><td class="Element304" valign="top" width="50%">
+<div class="Element305">
+Description&nbsp;</div></td></tr><tr>
+<td class="Element302" valign="top" width="50%">
+<div class="Element303">
+<a href="Jibu_CancelException.html" target="topic">Jibu.CancelException</a>&nbsp;</div></td><td class="Element306" valign="top" width="50%">
+<div class="Element307">
+If one of the Tasks is cancelled, Parallel.Reduce cancels the remaining Tasks and throws a <a href="Jibu_CancelException.html" target="topic">Jibu.CancelException</a>.&nbsp;</div></td></tr><tr>
+<td class="Element302" valign="top" width="50%">
+<div class="Element303">
+System.ArgumentOutOfRangeException&nbsp;</div></td><td class="Element306" valign="top" width="50%">
+<div class="Element307">
+Is thrown if the grain size is less than 1.&nbsp;</div></td></tr></table></div></div>
+</div>
+</div>
+</div>
+<a name="506172616C6C656C20526564756365204578616D706C65"></a><div class="Element14">
+<a onclick="toggleVisibilityStored('506172616C6C656C20526564756365204578616D706C65');" class="a_Element14"><img src="btn_collapse_large.gif" border="0" alt="" title="" id="img506172616C6C656C20526564756365204578616D706C65">Parallel Reduce Example</a></div>
+<div id="div506172616C6C656C20526564756365204578616D706C65">
+<div class="Element11">
+<div class="Element10">
+<div class="Element170">
+<a href="#" onclick="CopyElementToClipboard('code00059');">Copy Code</a></div>
+<div class="Element13"><div class="Element12" id="code00059"><pre class="Element12"><strong><span style="color: #008000">using</span></strong> System;
+<strong><span style="color: #008000">using</span></strong> System.Collections.Generic;
+<strong><span style="color: #008000">using</span></strong> System.Text;
+<strong><span style="color: #008000">using</span></strong> <a href="Jibu.html" target="topic">Jibu</a>;
+
+<strong><span style="color: #008000">namespace</span></strong> ReduceExample
+{
+    <i><span style="color: #0000FF">// This example shows how to combine multiple</span></i>
+    <i><span style="color: #0000FF">// associative values into a single value, using</span></i>
+    <i><span style="color: #0000FF">// the Reduce method.</span></i>
+    <strong><span style="color: #008000">class</span></strong> ReduceExample
+    {
+        <strong><span style="color: #008000">static</span></strong> <strong><span style="color: #008000">void</span></strong> Main(<strong><span style="color: #008000">string</span></strong>[] args)
+        {
+            <i><span style="color: #0000FF">// Adding integers from 0 to 1000000.</span></i>
+            <i><span style="color: #0000FF">// loopbody simply returns the index while combineMethod add the numbers.</span></i>
+            <strong><span style="color: #008000">int</span></strong> sum1 = Parallel.Reduce&lt;<strong><span style="color: #008000">int</span></strong>&gt;(0, 1000000, 0, <strong><span style="color: #008000">delegate</span></strong>(<strong><span style="color: #008000">int</span></strong> i) { <strong><span style="color: #008000">return</span></strong> i; }, <strong><span style="color: #008000">delegate</span></strong>(<strong><span style="color: #008000">int</span></strong> x, <strong><span style="color: #008000">int</span></strong> y) { <strong><span style="color: #008000">return</span></strong> x + y; });
+            Console.WriteLine(&quot;1 + 2 + 3 + ... + 1000000 = &quot; + sum1);
+            
+
+            <i><span style="color: #0000FF">// Adding integers from -10 to 1000000.</span></i>
+            <i><span style="color: #0000FF">// The initial value is 0 and the grainSize is set to 10000.</span></i>
+            <i><span style="color: #0000FF">// loopbody simply returns the index while combineMethod add the numbers.</span></i>
+            <strong><span style="color: #008000">int</span></strong> sum2 = Parallel.Reduce&lt;<strong><span style="color: #008000">int</span></strong>&gt;(-10, 1000000, 0, 10000, <strong><span style="color: #008000">delegate</span></strong>(<strong><span style="color: #008000">int</span></strong> i) { <strong><span style="color: #008000">return</span></strong> i; }, <strong><span style="color: #008000">delegate</span></strong>(<strong><span style="color: #008000">int</span></strong> x, <strong><span style="color: #008000">int</span></strong> y) { <strong><span style="color: #008000">return</span></strong> x + y; });
+            Console.WriteLine(&quot;nn-10 + (-9) + (-8) + ... + 1000000 = &quot; + sum2);
+        }
+    }
+}</pre></div></div>
+</div>
+</div>
+</div>
+<a name="53656520416C736F"></a><div class="Element14">
+<a onclick="toggleVisibilityStored('53656520416C736F');" class="a_Element14"><img src="btn_collapse_large.gif" border="0" alt="" title="" id="img53656520416C736F">See Also</a></div>
+<div id="div53656520416C736F">
+<div class="Element11">
+<div class="Element10">
+<a href="Jibu_Parallel.html" target="topic">Parallel Class</a><br /><a href="!!MEMBEROVERVIEW_Jibu_Parallel.html" target="topic">Parallel Members</a><br /><a href="Jibu.html" target="topic">Jibu Namespace</a><br /><a href="_Jibu_Parallel_Reduce@int@int@T@int@ReduceDelegate_T_@CombineDelegate_T__3_Parallel_Reduce_Example.html" target="topic">Parallel Reduce Example</a></div>
+</div>
+<div class="Element740">
+<a href="#PageContent" target="topic">Top</a></div>
+</div>
+</div>
+<!-- End Page Content -->
+
+<!-- Begin Page Footer -->
+<div class="Element93">
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr><td width="100%">
+<div class="Element97">
+What do you think about this topic? <a href="#" onclick="sendFeedback('mail@axon7.com', 'Documentation Feedback', 'Project: Jibu for .NET%0ATopic ID: Jibu.Parallel.Reduce@int@int@T@int@ReduceDelegate%3CT%3E@CombineDelegate%3CT%3E%0ATitle: Parallel.Reduce Method (int, int, T, int, ReduceDelegate%3CT%3E, CombineDelegate%3CT%3E)');"> Send feedback! </a></div>
+</td></tr><tr><td width="100%">
+<div class="Element3">
+Copyright (c) 2007. All rights reserved.</div>
+</td></tr></table></div>
+
+<!-- End Page Footer -->
+</div>
+</div>
+
+<!-- End Client Area -->
+</body></html>

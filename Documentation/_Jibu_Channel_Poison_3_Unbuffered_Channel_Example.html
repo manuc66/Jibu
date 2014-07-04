@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
+<html>
+<head>
+<title>Unbuffered Channel Example</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Doc-O-Matic" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <link rel="STYLESHEET" href="default.css" type="text/css" />
+
+<script type="text/javascript" src="scripts.js"></script>
+</head>
+<body class="Element700" onload="onBodyLoadEx('frames.html', 'topic', '_Jibu_Channel_Poison_3_Unbuffered_Channel_Example.html');" onmousedown="onBodyMouseDown();">
+
+<!-- Begin Popups -->
+
+<!-- End Popups -->
+
+<!-- Begin Page Header -->
+<div class="Element710" id="areafixed">
+<div class="Element94">
+<em>You are here:</em> Symbol Reference &gt; <a href="Jibu.html" target="topic">Jibu Namespace</a> &gt; <a href="Jibu_Channel.html" target="topic">Channel Class</a> &gt; <a href="!!MEMBERTYPE_Methods_Jibu_Channel.html" target="topic">Channel Methods</a> &gt; <a href="Jibu_Channel_Poison.html" target="topic">Poison Method</a></div>
+<div class="Element92">
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr><td width="33%">
+<div class="Element1">
+Jibu for .NET</div>
+</td><td width="34%">
+<div class="Element2">
+<a href="contents.html" target="tocidx"><img src="btn_globals_contents_midblue.gif" border="0" alt="Contents" title="Contents" onmouseover="switchImage(this, 'btn_globals_contents_midblue_hover.gif');" onmouseout="switchImage(this, 'btn_globals_contents_midblue.gif');"></a><a href="idx.html" target="tocidx"><img src="btn_globals_index_midblue.gif" border="0" alt="Index" title="Index" onmouseover="switchImage(this, 'btn_globals_index_midblue_hover.gif');" onmouseout="switchImage(this, 'btn_globals_index_midblue.gif');"></a><a href="index.html" target="topic"><img src="btn_globals_home_midblue.gif" border="0" alt="Home" title="Home" onmouseover="switchImage(this, 'btn_globals_home_midblue_hover.gif');" onmouseout="switchImage(this, 'btn_globals_home_midblue.gif');"></a></div>
+</td><td width="33%">
+</td></tr></table><div class="Element34">
+Unbuffered Channel Example</div>
+</div>
+</div>
+
+<!-- End Page Header -->
+
+<!-- Begin Client Area -->
+<div class="Element720" id="areascroll">
+<div class="Element721">
+
+<!-- Begin Page Content -->
+<a name="PageContent"></a><div class="Element58">
+<div class="Element11">
+<div class="Element10">
+<div class="Element170">
+<a href="#" onclick="CopyElementToClipboard('code00095');">Copy Code</a></div>
+<div class="Element13"><div class="Element12" id="code00095"><pre class="Element12"><strong><span style="color: #008000">using</span></strong> System;
+<strong><span style="color: #008000">using</span></strong> <a href="Jibu.html" target="topic">Jibu</a>;
+
+<strong><span style="color: #008000">namespace</span></strong> ChannelExample
+{
+    <i><span style="color: #0000FF">// Demonstrates the unbuffered Channel</span></i>
+    <strong><span style="color: #008000">class</span></strong> UnbufferedChannelExample
+    {
+        <strong><span style="color: #008000">static</span></strong> <strong><span style="color: #008000">void</span></strong> Main(<strong><span style="color: #008000">string</span></strong>[] args)
+        {
+            <i><span style="color: #0000FF">// Create unbuffered Channel that </span></i>
+            <i><span style="color: #0000FF">// can transfer integer values</span></i>
+            <a href="Jibu_Channel.html" target="topic">Channel</a>&lt;<strong><span style="color: #008000">int</span></strong>&gt; chan = <strong><span style="color: #008000">new</span></strong> <a href="Jibu_Channel.html" target="topic">Channel</a>&lt;<strong><span style="color: #008000">int</span></strong>&gt;();
+
+            <i><span style="color: #0000FF">// It is good practice - but not required -</span></i>
+            <i><span style="color: #0000FF">// to separate the reading and writing ends</span></i>
+            <i><span style="color: #0000FF">// of the Channel</span></i>
+            <a href="Jibu_Channel_ChannelReader.html" target="topic">ChannelReader</a>&lt;<strong><span style="color: #008000">int</span></strong>&gt; readEnd = chan.ChannelReader;
+            <a href="Jibu_Channel_ChannelWriter.html" target="topic">ChannelWriter</a>&lt;<strong><span style="color: #008000">int</span></strong>&gt; writeEnd = chan.ChannelWriter;
+
+
+            <i><span style="color: #0000FF">// This tasks writes an integer each second</span></i>
+            <a href="Jibu_Async.html" target="topic">Async</a> writer = <strong><span style="color: #008000">new</span></strong> <a href="Jibu_DelegateAsync.html" target="topic">DelegateAsync</a>(<strong><span style="color: #008000">delegate</span></strong>
+            {
+                <strong><span style="color: #008000">int</span></strong> i = 0;
+
+                <strong><span style="color: #008000">while</span></strong> (<strong><span style="color: #008000">true</span></strong>)
+                {
+                    <i><span style="color: #0000FF">// Since this channel is unbuffered </span></i>
+                    <i><span style="color: #0000FF">// this call hangs until the </span></i>
+                    <i><span style="color: #0000FF">// reader has read the data.</span></i>
+                    writeEnd.Write(i++);
+                    Timer.SleepFor(500);
+                }
+            }).Start();
+
+            <i><span style="color: #0000FF">// This task reads an integer and </span></i>
+            <i><span style="color: #0000FF">// prints it to the console</span></i>
+            <a href="Jibu_Async.html" target="topic">Async</a> reader = <strong><span style="color: #008000">new</span></strong> <a href="Jibu_DelegateAsync.html" target="topic">DelegateAsync</a>(<strong><span style="color: #008000">delegate</span></strong>
+            {
+                <strong><span style="color: #008000">while</span></strong> (<strong><span style="color: #008000">true</span></strong>)
+                {
+                    <i><span style="color: #0000FF">// This call hangs until data </span></i>
+                    <i><span style="color: #0000FF">// is written to the channel.</span></i>
+                    <strong><span style="color: #008000">int</span></strong> i = readEnd.Read();
+                    Console.WriteLine(&quot;Read &quot; + i);
+                }
+            }).Start();
+
+
+            Timer.SleepFor(5000);
+
+            <i><span style="color: #0000FF">// When we poison the channel both </span></i>
+            <i><span style="color: #0000FF">// tasks will receive a PoisonException</span></i>
+            <i><span style="color: #0000FF">// when they call read or write.</span></i>
+            chan.Poison();
+
+            <strong><span style="color: #008000">try</span></strong>
+            {
+                reader.WaitFor();
+            }
+            <strong><span style="color: #008000">catch</span></strong> (<a href="Jibu_CancelException.html" target="topic">CancelException</a> ex)
+            {
+                <strong><span style="color: #008000">if</span></strong> (ex.InnerException != <strong><span style="color: #008000">null</span></strong> &amp;&amp; ex.InnerException <strong><span style="color: #008000">is</span></strong> <a href="Jibu_PoisonException.html" target="topic">PoisonException</a>)
+                    Console.WriteLine(&quot;The reader threw PoisonException&quot;);
+            }
+
+            <strong><span style="color: #008000">try</span></strong>
+            {
+                writer.WaitFor();
+            }
+            <strong><span style="color: #008000">catch</span></strong> (<a href="Jibu_CancelException.html" target="topic">CancelException</a> ex)
+            {
+                <strong><span style="color: #008000">if</span></strong> (ex.InnerException != <strong><span style="color: #008000">null</span></strong> &amp;&amp; ex.InnerException <strong><span style="color: #008000">is</span></strong> <a href="Jibu_PoisonException.html" target="topic">PoisonException</a>)
+                    Console.WriteLine(&quot;The writer threw PoisonException&quot;);
+            }
+
+        }
+    }
+}</pre></div></div>
+</div>
+</div>
+</div>
+<!-- End Page Content -->
+
+<!-- Begin Page Footer -->
+<div class="Element93">
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr><td width="100%">
+<div class="Element3">
+Copyright (c) 2007. All rights reserved.</div>
+</td></tr></table></div>
+
+<!-- End Page Footer -->
+</div>
+</div>
+
+<!-- End Client Area -->
+</body></html>

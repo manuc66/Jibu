@@ -1,0 +1,300 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
+<html>
+<head>
+<title>Parallel.For Method (int, int, int, LoopDelegate)</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Doc-O-Matic" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <link rel="STYLESHEET" href="default.css" type="text/css" />
+
+<script type="text/javascript" src="scripts.js"></script>
+</head>
+<body class="Element700" onload="onBodyLoadEx('frames.html', 'topic', 'Jibu_Parallel_For@int@int@int@LoopDelegate.html');" onmousedown="onBodyMouseDown();">
+
+<!-- Begin Popups -->
+
+<!-- End Popups -->
+
+<!-- Begin Page Header -->
+<div class="Element710" id="areafixed">
+<div class="Element94">
+<em>You are here:</em> Symbol Reference &gt; <a href="Jibu.html" target="topic">Jibu Namespace</a> &gt; <a href="Jibu_Parallel.html" target="topic">Parallel Class</a> &gt; <a href="!!MEMBERTYPE_Methods_Jibu_Parallel.html" target="topic">Parallel Methods</a> &gt; <a href="!!OVERLOADED_For_Jibu_Parallel.html" target="topic">For Method</a> &gt; <a href="Jibu_Parallel_For@int@int@int@LoopDelegate.html" target="topic">For Method (int, int, int, LoopDelegate)</a></div>
+<div class="Element92">
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr><td width="33%">
+<div class="Element1">
+Jibu for .NET</div>
+</td><td width="34%">
+<div class="Element2">
+<a href="contents.html" target="tocidx"><img src="btn_globals_contents_midblue.gif" border="0" alt="Contents" title="Contents" onmouseover="switchImage(this, 'btn_globals_contents_midblue_hover.gif');" onmouseout="switchImage(this, 'btn_globals_contents_midblue.gif');"></a><a href="idx.html" target="tocidx"><img src="btn_globals_index_midblue.gif" border="0" alt="Index" title="Index" onmouseover="switchImage(this, 'btn_globals_index_midblue_hover.gif');" onmouseout="switchImage(this, 'btn_globals_index_midblue.gif');"></a><a href="index.html" target="topic"><img src="btn_globals_home_midblue.gif" border="0" alt="Home" title="Home" onmouseover="switchImage(this, 'btn_globals_home_midblue_hover.gif');" onmouseout="switchImage(this, 'btn_globals_home_midblue.gif');"></a></div>
+</td><td width="33%">
+<div class="Element90">
+<a href="Jibu_Parallel_For@int@int@LoopDelegate.html" target="topic"><img src="btn_prev_midblue.gif" border="0" alt="Previous" title="Previous" onmouseover="switchImage(this, 'btn_prev_midblue_hover.gif');" onmouseout="switchImage(this, 'btn_prev_midblue.gif');"></a><a href="!!OVERLOADED_For_Jibu_Parallel.html" target="topic"><img src="btn_up_midblue.gif" border="0" alt="Up" title="Up" onmouseover="switchImage(this, 'btn_up_midblue_hover.gif');" onmouseout="switchImage(this, 'btn_up_midblue.gif');"></a><a href="!!OVERLOADED_Foreach_Jibu_Parallel.html" target="topic"><img src="btn_next_midblue.gif" border="0" alt="Next" title="Next" onmouseover="switchImage(this, 'btn_next_midblue_hover.gif');" onmouseout="switchImage(this, 'btn_next_midblue.gif');"></a></div>
+</td></tr></table><div class="Element5">
+Parallel.For Method (int, int, int, LoopDelegate)</div>
+<div class="Element7">
+<a href="Jibu_Parallel.html" target="topic">Parallel Class</a>&nbsp; <a href="!!MEMBEROVERVIEW_Jibu_Parallel.html" target="topic">Parallel Members</a>&nbsp; <a href="Jibu.html" target="topic">Jibu Namespace</a>&nbsp; <a href="_Jibu_Parallel_For@int@int@int@LoopDelegate_3_Parallel_For_Example.html" target="topic">Parallel For Example</a>&nbsp; <a href="Jibu_Parallel_For@int@int@int@LoopDelegate.html#53656520416C736F" target="topic">See Also</a></div>
+<div class="Element731">
+<div class="Element730">
+<a href="#" onclick="ToggleAllElements('52656D61726B73,457863657074696F6E73,506172616C6C656C20466F72204578616D706C65,53656520416C736F', 'linkToggleAllElements', 'imgToggleAllElements', 'Collapse All', 'Expand All');"><img src="btn_collapse.gif" border="0" alt="" title="" id="imgToggleAllElements"></a><a href="#" id="linkToggleAllElements" onclick="ToggleAllElements('52656D61726B73,457863657074696F6E73,506172616C6C656C20466F72204578616D706C65,53656520416C736F', 'linkToggleAllElements', 'imgToggleAllElements', 'Collapse All', 'Expand All');">Collapse All</a></div>
+</div>
+</div>
+</div>
+
+<!-- End Page Header -->
+
+<!-- Begin Client Area -->
+<div class="Element720" id="areascroll">
+<div class="Element721">
+
+<!-- Begin Page Content -->
+<a name="PageContent"></a><div class="Element58">
+<a name="53756D6D617279"></a><div class="Element11">
+<div class="Element10">
+<p class="Element10">
+A parallel version of a standard for loop. </p></div>
+</div>
+<a name="432B2B"></a><div class="Element99">
+C++</div>
+<div class="Element101"><div class="Element100"><pre class="Element100"><strong><span style="color: #008000">public</span></strong>: <strong><span style="color: #008000">void</span></strong> <strong><span style="color: #660000"><strong><span style="color: #660000">For</span></strong></strong>(
+    <strong><span style="color: #008000">int</span></strong> <strong><span style="color: #800080">start</span></strong>, 
+    <strong><span style="color: #008000">int</span></strong> <strong><span style="color: #800080">end</span></strong>, 
+    <strong><span style="color: #008000">int</span></strong> <strong><span style="color: #800080">grainSize</span></strong>, 
+    <a href="Jibu_LoopDelegate.html" target="topic">LoopDelegate</a> <strong><span style="color: #800080">loopbody</span></strong>
+);</pre></div></div>
+<a name="4323"></a><div class="Element99">
+C#</div>
+<div class="Element101"><div class="Element100"><pre class="Element100"><strong><span style="color: #008000">public</span></strong> <strong><span style="color: #008000">static</span></strong> <strong><span style="color: #008000">void</span></strong> <strong><span style="color: #660000"><strong><span style="color: #660000">For</span></strong></strong>(
+    <strong><span style="color: #008000">int</span></strong> <strong><span style="color: #800080">start</span></strong>, 
+    <strong><span style="color: #008000">int</span></strong> <strong><span style="color: #800080">end</span></strong>, 
+    <strong><span style="color: #008000">int</span></strong> <strong><span style="color: #800080">grainSize</span></strong>, 
+    <a href="Jibu_LoopDelegate.html" target="topic">LoopDelegate</a> <strong><span style="color: #800080">loopbody</span></strong>
+);</pre></div></div>
+<a name="56697375616C204261736963"></a><div class="Element99">
+Visual Basic</div>
+<div class="Element101"><div class="Element100"><pre class="Element100"><strong><span style="color: #008000">Public</span></strong> <strong><span style="color: #008000">static</span></strong> <strong><span style="color: #008000">Function</span></strong> <strong><span style="color: #660000"><strong><span style="color: #660000"><strong><span style="color: #008000">For</span></strong></strong></strong>(
+    <strong><span style="color: #800080">start</span></strong> <strong><span style="color: #008000">As</span></strong> <strong><span style="color: #008000">Integer</span></strong>, 
+    <strong><span style="color: #800080"><strong><span style="color: #008000">end</span></strong></strong> <strong><span style="color: #008000">As</span></strong> <strong><span style="color: #008000">Integer</span></strong>, 
+    <strong><span style="color: #800080">grainSize</span></strong> <strong><span style="color: #008000">As</span></strong> <strong><span style="color: #008000">Integer</span></strong>, 
+    <strong><span style="color: #800080">loopbody</span></strong> <strong><span style="color: #008000">As</span></strong> <a href="Jibu_LoopDelegate.html" target="topic">LoopDelegate</a>
+) <strong><span style="color: #008000">As</span></strong> void</pre></div></div>
+<a name="506172616D6574657273"></a><div class="Element14">
+Parameters</div>
+<div class="Element11">
+<div class="Element10">
+<p class="Element10">
+<div class="Element248">
+<div class="Element249">
+start</div>
+</div>
+<div class="Element250">
+<div class="Element251">
+First index, which is incremented by one until it equals end.</div>
+</div>
+<div class="Element248">
+<div class="Element249">
+end</div>
+</div>
+<div class="Element250">
+<div class="Element251">
+Last index, which is not included in the loop. The For loop runs as long as start is less than end.</div>
+</div>
+<div class="Element248">
+<div class="Element249">
+grainSize</div>
+</div>
+<div class="Element250">
+<div class="Element251">
+A reasonable number of iterations in each task</div>
+</div>
+<div class="Element248">
+<div class="Element249">
+loopbody</div>
+</div>
+<div class="Element250">
+<div class="Element251">
+A delegate containing the work. Loopbody is executed once for each iteration.</div>
+</div>
+</p></div>
+</div>
+<a name="52656D61726B73"></a><div class="Element14">
+<a onclick="toggleVisibilityStored('52656D61726B73');" class="a_Element14"><img src="btn_collapse_large.gif" border="0" alt="" title="" id="img52656D61726B73">Remarks</a></div>
+<div id="div52656D61726B73">
+<div class="Element11">
+<div class="Element10">
+<p class="Element10">
+Parallel.For is similar to a standard for loop starting at index i = start and running as long as i is less than end. loopbody is called once in each iteration and index i is incremented by one after each iteration. &nbsp;</p>
+<p class="Element10">
+GrainSize specifies a reasonable number of iterations in each task. If the number of iterations is larger than grainSize, data is split in two and handled separately. Adjusting the grain size can lead to better performance, but the optimal grain size depends on the problem at hand. Increasing the grain size will decrease the amount of tasks, and thus decrease the overhead of setting up tasks. But a small amount of tasks might introduce some load balancing problems, if no tasks are available for free processors. Decreasing the grain size will increase the amount of tasks and thereby ensure better load balancing, but on the other hand it will also increase the overhead of setting up tasks. Use Parallel.For(int start, int end, <a href="Jibu_LoopDelegate.html" target="topic">LoopDelegate</a> loopbody) at first and once your code is working, experiment with the grain size.&nbsp;</p>
+<p class="Element10">
+Parallel.For catches any uncaught exception raised inside the tasks. Once the exception is caught Parallel.For cancels all running tasks that it has started and throws a <a href="Jibu_CancelException.html" target="topic">Jibu.CancelException</a>, containing the original exception. <a href="Jibu.html" target="topic">Jibu</a> cancels all tasks but it doesn't just brutally stop them - the user defined code must detect and handle the cancellation. For more information on cancellation see <a href="Jibu_Task_Cancel.html" target="topic">Jibu.Task.Cancel</a> and <a href="Jibu_CancelException.html" target="topic">Jibu.CancelException</a> </p></div>
+</div>
+</div>
+<a name="457863657074696F6E73"></a><div class="Element14">
+<a onclick="toggleVisibilityStored('457863657074696F6E73');" class="a_Element14"><img src="btn_collapse_large.gif" border="0" alt="" title="" id="img457863657074696F6E73">Exceptions</a></div>
+<div id="div457863657074696F6E73">
+<div class="Element11">
+<div class="Element10">
+<div class="Element312">
+<div class="TableDiv">
+<table cellspacing="0" class="Table2">
+<tr>
+<td class="Element300" valign="top" width="50%">
+<div class="Element301">
+Exceptions&nbsp;</div></td><td class="Element304" valign="top" width="50%">
+<div class="Element305">
+Description&nbsp;</div></td></tr><tr>
+<td class="Element302" valign="top" width="50%">
+<div class="Element303">
+<a href="Jibu_CancelException.html" target="topic">Jibu.CancelException</a>&nbsp;</div></td><td class="Element306" valign="top" width="50%">
+<div class="Element307">
+If one of the Tasks is cancelled, Parallel.For cancels the remaining Tasks and throws a <a href="Jibu_CancelException.html" target="topic">Jibu.CancelException</a>.&nbsp;</div></td></tr><tr>
+<td class="Element302" valign="top" width="50%">
+<div class="Element303">
+System.ArgumentOutOfRangeException&nbsp;</div></td><td class="Element306" valign="top" width="50%">
+<div class="Element307">
+Is thrown if the grain size is less than 1.&nbsp;</div></td></tr></table></div></div>
+</div>
+</div>
+</div>
+<a name="506172616C6C656C20466F72204578616D706C65"></a><div class="Element14">
+<a onclick="toggleVisibilityStored('506172616C6C656C20466F72204578616D706C65');" class="a_Element14"><img src="btn_collapse_large.gif" border="0" alt="" title="" id="img506172616C6C656C20466F72204578616D706C65">Parallel For Example</a></div>
+<div id="div506172616C6C656C20466F72204578616D706C65">
+<div class="Element11">
+<div class="Element10">
+<div class="Element170">
+<a href="#" onclick="CopyElementToClipboard('code00054');">Copy Code</a></div>
+<div class="Element13"><div class="Element12" id="code00054"><pre class="Element12"><strong><span style="color: #008000">using</span></strong> System;
+<strong><span style="color: #008000">using</span></strong> System.Collections.Generic;
+<strong><span style="color: #008000">using</span></strong> System.Text;
+<strong><span style="color: #008000">using</span></strong> <a href="Jibu.html" target="topic">Jibu</a>;
+
+<strong><span style="color: #008000">namespace</span></strong> ForExample
+{
+    <i><span style="color: #0000FF">// Example showing the usage of the Parallel for loop</span></i>
+    <strong><span style="color: #008000">class</span></strong> ForExample
+    {
+        <i><span style="color: #0000FF">// Calculates the square root of all the elements in</span></i>
+        <i><span style="color: #0000FF">// a matrix using Parallel.For</span></i>
+        <strong><span style="color: #008000">private</span></strong> <strong><span style="color: #008000">static</span></strong> <strong><span style="color: #008000">void</span></strong> ParallelMatrixSqrt(<strong><span style="color: #008000">double</span></strong>[,] matrix, <strong><span style="color: #008000">double</span></strong>[,] sqMatrix, <strong><span style="color: #008000">int</span></strong> width, <strong><span style="color: #008000">int</span></strong> height)
+        {
+            <i><span style="color: #0000FF">// You can experiment with the grain size, to </span></i>
+            <i><span style="color: #0000FF">// gain better performance</span></i>
+            Parallel.For(0, width, 200, <strong><span style="color: #008000">delegate</span></strong>(<strong><span style="color: #008000">int</span></strong> x)
+            {
+                <strong><span style="color: #008000">for</span></strong> (<strong><span style="color: #008000">int</span></strong> y = 0; y &lt; height; y++)
+                {
+                    sqMatrix[x, y] = Math.Sqrt(matrix[x, y]);
+                }
+            });
+        }
+
+        <i><span style="color: #0000FF">// Calculates the square root of all the elements in</span></i>
+        <i><span style="color: #0000FF">// a matrix using Parallel.For with the default grain size</span></i>
+        <i><span style="color: #0000FF">// that is every iteration is executed in a separate Task.</span></i>
+        <strong><span style="color: #008000">private</span></strong> <strong><span style="color: #008000">static</span></strong> <strong><span style="color: #008000">void</span></strong> ParallelMatrixSqrtNoGrainSize(<strong><span style="color: #008000">double</span></strong>[,] matrix, <strong><span style="color: #008000">double</span></strong>[,] sqMatrix, <strong><span style="color: #008000">int</span></strong> width, <strong><span style="color: #008000">int</span></strong> height)
+        {
+            <i><span style="color: #0000FF">// You can experiment with the grain size, to </span></i>
+            <i><span style="color: #0000FF">// gain better performance</span></i>
+            Parallel.For(0, width, <strong><span style="color: #008000">delegate</span></strong>(<strong><span style="color: #008000">int</span></strong> x)
+            {
+                <strong><span style="color: #008000">for</span></strong> (<strong><span style="color: #008000">int</span></strong> y = 0; y &lt; height; y++)
+                {
+                    sqMatrix[x, y] = Math.Sqrt(matrix[x, y]);
+                }
+            });
+        }
+
+        <i><span style="color: #0000FF">// Calculates the square root of all the elements in</span></i>
+        <i><span style="color: #0000FF">// a matrix sequentially</span></i>
+        <strong><span style="color: #008000">private</span></strong> <strong><span style="color: #008000">static</span></strong> <strong><span style="color: #008000">void</span></strong> SequentialMatrixSqrt(<strong><span style="color: #008000">double</span></strong>[,] matrix, <strong><span style="color: #008000">double</span></strong>[,] sqMatrix, <strong><span style="color: #008000">int</span></strong> width, <strong><span style="color: #008000">int</span></strong> height)
+        {
+            <strong><span style="color: #008000">for</span></strong> (<strong><span style="color: #008000">int</span></strong> x = 0; x &lt; width; x++)
+            {
+                <strong><span style="color: #008000">for</span></strong> (<strong><span style="color: #008000">int</span></strong> y = 0; y &lt; height; y++)
+                {
+                    sqMatrix[x, y] = Math.Sqrt(matrix[x, y]);
+                }
+            }
+        }
+
+        <strong><span style="color: #008000">static</span></strong> <strong><span style="color: #008000">void</span></strong> Main(<strong><span style="color: #008000">string</span></strong>[] args)
+        {
+            <strong><span style="color: #008000">int</span></strong> width = 5000;
+            <strong><span style="color: #008000">int</span></strong> height = 5000;
+
+            <strong><span style="color: #008000">double</span></strong>[,] matrix = <strong><span style="color: #008000">new</span></strong> <strong><span style="color: #008000">double</span></strong>[width, height];
+            <strong><span style="color: #008000">double</span></strong>[,] sqMatrix = <strong><span style="color: #008000">new</span></strong> <strong><span style="color: #008000">double</span></strong>[width, height];
+
+
+
+            <i><span style="color: #0000FF">// Put some numbers in the matrix.</span></i>
+            <strong><span style="color: #008000">for</span></strong> (<strong><span style="color: #008000">int</span></strong> x = 0; x &lt; width; x++)
+            {
+                <strong><span style="color: #008000">for</span></strong> (<strong><span style="color: #008000">int</span></strong> y = 0; y &lt; height; y++)
+                {
+                    matrix[x, y] = x + y;
+                }
+            }
+
+            <i><span style="color: #0000FF">// We're micro-benchmarking, so we run</span></i>
+            <i><span style="color: #0000FF">// each method once before we time it, to</span></i>
+            <i><span style="color: #0000FF">// let the JIT-compilation kick in.</span></i>
+            SequentialMatrixSqrt(matrix, sqMatrix, width, height);
+            ParallelMatrixSqrt(matrix, sqMatrix, width, height);
+            ParallelMatrixSqrtNoGrainSize(matrix, sqMatrix, width, height);
+
+
+            <strong><span style="color: #008000">long</span></strong> start = DateTime.Now.Ticks;
+            <i><span style="color: #0000FF">// Calculate the square root of each number.</span></i>
+            SequentialMatrixSqrt(matrix, sqMatrix, width, height);
+            Console.WriteLine(&quot;Time spent (sequential): &quot; + ((DateTime.Now.Ticks - start) / 10000) + &quot;ms&quot;);
+            Console.WriteLine(&quot;Parallel...&quot;);
+
+            start = DateTime.Now.Ticks;
+            <i><span style="color: #0000FF">// Calculate the square root of each number.</span></i>
+            ParallelMatrixSqrt(matrix, sqMatrix, width, height);
+            Console.WriteLine(&quot;Time spent (parallel grain size): &quot; + ((DateTime.Now.Ticks - start) / 10000) + &quot;ms&quot;);
+            Console.WriteLine(&quot;Done.&quot;);
+
+            start = DateTime.Now.Ticks;
+            <i><span style="color: #0000FF">// Calculate the square root of each number.</span></i>
+            ParallelMatrixSqrtNoGrainSize(matrix, sqMatrix, width, height);
+            Console.WriteLine(&quot;Time spent (parallel default grain size): &quot; + ((DateTime.Now.Ticks - start) / 10000) + &quot;ms&quot;);
+            Console.WriteLine(&quot;Done.&quot;);
+        }
+    }
+}</pre></div></div>
+</div>
+</div>
+</div>
+<a name="53656520416C736F"></a><div class="Element14">
+<a onclick="toggleVisibilityStored('53656520416C736F');" class="a_Element14"><img src="btn_collapse_large.gif" border="0" alt="" title="" id="img53656520416C736F">See Also</a></div>
+<div id="div53656520416C736F">
+<div class="Element11">
+<div class="Element10">
+<a href="Jibu_Parallel.html" target="topic">Parallel Class</a><br /><a href="!!MEMBEROVERVIEW_Jibu_Parallel.html" target="topic">Parallel Members</a><br /><a href="Jibu.html" target="topic">Jibu Namespace</a><br /><a href="_Jibu_Parallel_For@int@int@int@LoopDelegate_3_Parallel_For_Example.html" target="topic">Parallel For Example</a></div>
+</div>
+<div class="Element740">
+<a href="#PageContent" target="topic">Top</a></div>
+</div>
+</div>
+<!-- End Page Content -->
+
+<!-- Begin Page Footer -->
+<div class="Element93">
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr><td width="100%">
+<div class="Element97">
+What do you think about this topic? <a href="#" onclick="sendFeedback('mail@axon7.com', 'Documentation Feedback', 'Project: Jibu for .NET%0ATopic ID: Jibu.Parallel.For@int@int@int@LoopDelegate%0ATitle: Parallel.For Method (int, int, int, LoopDelegate)');"> Send feedback! </a></div>
+</td></tr><tr><td width="100%">
+<div class="Element3">
+Copyright (c) 2007. All rights reserved.</div>
+</td></tr></table></div>
+
+<!-- End Page Footer -->
+</div>
+</div>
+
+<!-- End Client Area -->
+</body></html>

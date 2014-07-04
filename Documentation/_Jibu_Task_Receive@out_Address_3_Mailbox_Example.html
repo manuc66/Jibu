@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
+<html>
+<head>
+<title>Mailbox Example</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Doc-O-Matic" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <link rel="STYLESHEET" href="default.css" type="text/css" />
+
+<script type="text/javascript" src="scripts.js"></script>
+</head>
+<body class="Element700" onload="onBodyLoadEx('frames.html', 'topic', '_Jibu_Task_Receive@out_Address_3_Mailbox_Example.html');" onmousedown="onBodyMouseDown();">
+
+<!-- Begin Popups -->
+
+<!-- End Popups -->
+
+<!-- Begin Page Header -->
+<div class="Element710" id="areafixed">
+<div class="Element94">
+<em>You are here:</em> Symbol Reference &gt; <a href="Jibu.html" target="topic">Jibu Namespace</a> &gt; <a href="Jibu_Task.html" target="topic">Task Class</a> &gt; <a href="!!MEMBERTYPE_Methods_Jibu_Task.html" target="topic">Task Methods</a> &gt; <a href="!!OVERLOADED_Receive_Jibu_Task.html" target="topic">Receive Method</a> &gt; <a href="Jibu_Task_Receive@out_Address.html" target="topic">Receive Method (out Address)</a></div>
+<div class="Element92">
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr><td width="33%">
+<div class="Element1">
+Jibu for .NET</div>
+</td><td width="34%">
+<div class="Element2">
+<a href="contents.html" target="tocidx"><img src="btn_globals_contents_midblue.gif" border="0" alt="Contents" title="Contents" onmouseover="switchImage(this, 'btn_globals_contents_midblue_hover.gif');" onmouseout="switchImage(this, 'btn_globals_contents_midblue.gif');"></a><a href="idx.html" target="tocidx"><img src="btn_globals_index_midblue.gif" border="0" alt="Index" title="Index" onmouseover="switchImage(this, 'btn_globals_index_midblue_hover.gif');" onmouseout="switchImage(this, 'btn_globals_index_midblue.gif');"></a><a href="index.html" target="topic"><img src="btn_globals_home_midblue.gif" border="0" alt="Home" title="Home" onmouseover="switchImage(this, 'btn_globals_home_midblue_hover.gif');" onmouseout="switchImage(this, 'btn_globals_home_midblue.gif');"></a></div>
+</td><td width="33%">
+</td></tr></table><div class="Element34">
+Mailbox Example</div>
+</div>
+</div>
+
+<!-- End Page Header -->
+
+<!-- Begin Client Area -->
+<div class="Element720" id="areascroll">
+<div class="Element721">
+
+<!-- Begin Page Content -->
+<a name="PageContent"></a><div class="Element58">
+<div class="Element11">
+<div class="Element10">
+<div class="Element170">
+<a href="#" onclick="CopyElementToClipboard('code00150');">Copy Code</a></div>
+<div class="Element13"><div class="Element12" id="code00150"><pre class="Element12"><strong><span style="color: #008000">using</span></strong> System;
+<strong><span style="color: #008000">using</span></strong> <a href="Jibu.html" target="topic">Jibu</a>;
+<strong><span style="color: #008000">using</span></strong> System.Collections.Generic;
+
+<strong><span style="color: #008000">namespace</span></strong> MailBoxExample
+{
+    <i><span style="color: #0000FF">// We define a client task</span></i>
+    <strong><span style="color: #008000">class</span></strong> Client : <a href="Jibu_Async.html" target="topic">Async</a>
+    {
+        <strong><span style="color: #008000">public</span></strong> <strong><span style="color: #008000">override</span></strong> <strong><span style="color: #008000">void</span></strong> Run()
+        {
+            <a href="Jibu_Task_Address.html" target="topic">Address</a> serverAddr;
+
+            <i><span style="color: #0000FF">// Receive a message from the server</span></i>
+            <i><span style="color: #0000FF">// and get the servers Address. Receive</span></i>
+            <i><span style="color: #0000FF">// blocks until a message of the specified </span></i>
+            <i><span style="color: #0000FF">// type has been received.</span></i>
+            <strong><span style="color: #008000">int</span></strong> value = Receive&lt;<strong><span style="color: #008000">int</span></strong>&gt;(<strong><span style="color: #008000">out</span></strong> serverAddr);
+            Console.WriteLine(&quot;Client received {0}&quot;, value);
+
+            <i><span style="color: #0000FF">// Send a new value back to the server</span></i>
+            <a href="Jibu_Task_Send@object@Address.html" target="topic">Send</a>(value + 1, serverAddr); 
+        }
+    }
+
+    <i><span style="color: #0000FF">// A server task</span></i>
+    <strong><span style="color: #008000">class</span></strong> Server : <a href="Jibu_Async.html" target="topic">Async</a>
+    {
+        <strong><span style="color: #008000">private</span></strong> List&lt;<a href="Jibu_Task_Address.html" target="topic">Address</a>&gt; clients;
+
+        <strong><span style="color: #008000">public</span></strong> Server(List&lt;<a href="Jibu_Task_Address.html" target="topic">Address</a>&gt; clients)
+        {
+            <strong><span style="color: #008000">this</span></strong>.clients = clients;    
+        }
+
+        <strong><span style="color: #008000">public</span></strong> <strong><span style="color: #008000">override</span></strong> <strong><span style="color: #008000">void</span></strong> Run()
+        {
+            <strong><span style="color: #008000">int</span></strong> i = 0;
+
+            <i><span style="color: #0000FF">// send an integer to all clients</span></i>
+            <strong><span style="color: #008000">foreach</span></strong> (<a href="Jibu_Task_Address.html" target="topic">Address</a> addr <strong><span style="color: #008000">in</span></strong> clients)
+            {
+                <a href="Jibu_Task_Send@object@Address.html" target="topic">Send</a>(i++, addr);
+            }
+
+            <i><span style="color: #0000FF">// make sure that the clients have </span></i>
+            <i><span style="color: #0000FF">// finished printing</span></i>
+            Timer.SleepFor(200);
+
+            <i><span style="color: #0000FF">// receive a new value from all clients</span></i>
+            <i><span style="color: #0000FF">// using ReceiveFrom</span></i>
+            <strong><span style="color: #008000">foreach</span></strong> (<a href="Jibu_Task_Address.html" target="topic">Address</a> addr <strong><span style="color: #008000">in</span></strong> clients)
+            {
+                Console.WriteLine(&quot;Server received {0}&quot;, <a href="Jibu_Task_ReceiveFrom@Address.html" target="topic">ReceiveFrom</a>&lt;<strong><span style="color: #008000">int</span></strong>&gt;(addr));
+            }
+        }
+    }
+
+    <i><span style="color: #0000FF">// This example demonstrates the use</span></i>
+    <i><span style="color: #0000FF">// of a Tasks built-in mail box.</span></i>
+    <strong><span style="color: #008000">class</span></strong> MailBoxExample
+    {
+        <strong><span style="color: #008000">static</span></strong> <strong><span style="color: #008000">void</span></strong> Main(<strong><span style="color: #008000">string</span></strong>[] args)
+        {
+            
+            <i><span style="color: #0000FF">// We create a list of adresses to give to</span></i>
+            <i><span style="color: #0000FF">// the server.</span></i>
+            List&lt;<a href="Jibu_Task_Address.html" target="topic">Address</a>&gt; clients = <strong><span style="color: #008000">new</span></strong> List&lt;<a href="Jibu_Task_Address.html" target="topic">Address</a>&gt;();
+
+            <i><span style="color: #0000FF">// Start 10 clients</span></i>
+            <strong><span style="color: #008000">for</span></strong> (<strong><span style="color: #008000">int</span></strong> i = 0; i &lt; 10; i++)
+            {
+                <a href="Jibu_Async.html" target="topic">Async</a> aw = <strong><span style="color: #008000">new</span></strong> Client().Start();
+                <i><span style="color: #0000FF">// add the Address to the list</span></i>
+                clients.Add(aw.Address);
+            }
+
+            <i><span style="color: #0000FF">// Create the server and wait for it to finish</span></i>
+            <i><span style="color: #0000FF">// notice that we don't have to call Start()</span></i>
+            <i><span style="color: #0000FF">// if we want to wait for the task immediately.</span></i>
+            <strong><span style="color: #008000">new</span></strong> Server(clients).WaitFor();                       
+        }
+    }
+}</pre></div></div>
+</div>
+</div>
+</div>
+<!-- End Page Content -->
+
+<!-- Begin Page Footer -->
+<div class="Element93">
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr><td width="100%">
+<div class="Element3">
+Copyright (c) 2007. All rights reserved.</div>
+</td></tr></table></div>
+
+<!-- End Page Footer -->
+</div>
+</div>
+
+<!-- End Client Area -->
+</body></html>

@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
+<html>
+<head>
+<title>Welcome</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Doc-O-Matic" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <link rel="STYLESHEET" href="default.css" type="text/css" />
+
+<script type="text/javascript" src="scripts.js"></script>
+<xml>
+    <MSHelp:Keyword Index="NamedURLIndex" Term="HomePage"/>
+    <MSHelp:Keyword Index="NamedURLIndex" Term="DefaultPage"/>
+</xml>
+</head>
+<body class="Element54" onload="onBodyLoadEx('frames.html', 'topic', 'index.html');">
+<div class="Element56">
+<a href="contents.html" target="tocidx"><img src="btn_globals_contents_midblue.gif" border="0" alt="Contents" title="Contents" onmouseover="switchImage(this, 'btn_globals_contents_midblue_hover.gif');" onmouseout="switchImage(this, 'btn_globals_contents_midblue.gif');"></a><a href="idx.html" target="tocidx"><img src="btn_globals_index_midblue.gif" border="0" alt="Index" title="Index" onmouseover="switchImage(this, 'btn_globals_index_midblue_hover.gif');" onmouseout="switchImage(this, 'btn_globals_index_midblue.gif');"></a></div>
+<div class="Element55">
+Jibu for .NET</div>
+<div class="Element56">
+<strong>What is <a href="Jibu.html" target="topic">Jibu</a>?</strong>&nbsp;</p>
+<p class="Element56">
+<a href="Jibu.html" target="topic">Jibu</a> is a high level software library for concurrent and parallel programming. <a href="Jibu.html" target="topic">Jibu</a> targets shared memory systems and provides a simple and intuitive API that greatly simplifies the development and maintenance of concurrent and parallel programs, by abstracting low level features such as threads, locks and various synchronization mechanisms.&nbsp;</p>
+<p class="Element56">
+Most concurrent and parallel programs are organized according to one of these principles: tasks, data decomposition, flow of data. <a href="Jibu.html" target="topic">Jibu</a> is designed to support all these. Features are provided that support simple and fast implementation of well known and often used paradigms like embarrassingly parallel programs, divide &amp; conquer, pipelining and so on.&nbsp;</p>
+<p class="Element56">
+&nbsp;</p>
+<p class="Element56">
+<strong>What does <a href="Jibu.html" target="topic">Jibu</a> provide?</strong>&nbsp;</p>
+<p class="Element56">
+<a href="Jibu.html" target="topic">Jibu</a> features a few, but very powerful, concurrency constructs providing the programmer with high level access to concurrent and parallel programming. This section gives a quick overview of the most important constructs. Refer to the documentation of each feature for examples and a more detailed descriptions.&nbsp;</p>
+<p class="Element56">
+&nbsp;</p>
+<p class="Element56">
+<i>Tasks:</i>&nbsp;</p>
+<p class="Element56">
+A <a href="Jibu.html" target="topic">Jibu</a> program basically consists of tasks executing concurrently where tasks are user defined units of work, that are executed according to the constrains implied by the program. There are basically two kinds of tasks, Asyncs which do not return a result and Futures that do return a result.&nbsp;</p>
+<p class="Element56">
+A Task is implemented by extending one of the abstract classes <a href="Jibu_Async.html" target="topic">Jibu.Async</a> and <a href="Jibu_Future.html" target="topic">Jibu.Future</a>, and implementing the Run method. Another option is to use <a href="Jibu_DelegateAsync.html" target="topic">Jibu.DelegateAsync</a> or <a href="Jibu_DelegateFuture.html" target="topic">Jibu.DelegateFuture</a>, which are implementations of <a href="Jibu_Async.html" target="topic">Jibu.Async</a> and <a href="Jibu_Future.html" target="topic">Jibu.Future</a>. These classes are constructed with a delegate method that matches either the <a href="Jibu_AsyncWork.html" target="topic">Jibu.AsyncWork</a> or <a href="Jibu_FutureWork.html" target="topic">Jibu.FutureWork</a> delegate signature.&nbsp;</p>
+<p class="Element56">
+Different options exist as to how to execute the tasks - the <a href="Jibu_Parallel_Run@params_Async[].html" target="topic">Jibu.Parallel.Run</a>, <a href="Jibu_Parallel_Gather@params_Future_T_[].html" target="topic">Jibu.Parallel.Gather</a> and <a href="Jibu_Parallel_RunAsThreads@params_Async[].html" target="topic">Jibu.Parallel.RunAsThreads</a> methods all execute multiple tasks concurrently. It's also possible to run the tasks by explicitly calling the Start method on the implemented task. The choice is usually obvious given the specific context.&nbsp;</p>
+<p class="Element56">
+Once started a Task is assigned to <a href="Jibu.html" target="topic">Jibu</a>'s built-in scheduler, that executes the Task.&nbsp;</p>
+<p class="Element56">
+<a href="Jibu_Future.html" target="topic">Jibu.Future</a> tasks return a result which is obtained by calling the <a href="Jibu_Future_Result.html" target="topic">Jibu.Future.Result</a> method on the task. <a href="Jibu_Async.html" target="topic">Jibu.Async</a> tasks don't return a result but calling <a href="Jibu_Async_WaitFor.html" target="topic">Jibu.Async.WaitFor</a> will force the caller to block until the task has finished execution.&nbsp;</p>
+<p class="Element56">
+When calling <a href="Jibu_Async_WaitFor.html" target="topic">Jibu.Async.WaitFor</a> or <a href="Jibu_Future_Result.html" target="topic">Jibu.Future.Result</a> we do not know if the Task has even started running yet, that is if the scheduler has started the execution. If the task has not started execution yet, the caller will execute the task itself, instead of just waiting for the result!&nbsp;</p>
+<p class="Element56">
+&nbsp;</p>
+<p class="Element56">
+<i>Parallel:</i>&nbsp;</p>
+<p class="Element56">
+<a href="Jibu_Parallel.html" target="topic">Jibu.Parallel</a> is a static class providing methods for running tasks concurrently. <a href="Jibu_Parallel_Run@params_Async[].html" target="topic">Jibu.Parallel.Run</a> use the built-in scheduler to execute <a href="Jibu_Async.html" target="topic">Jibu.Async</a> tasks concurrently. The built-in scheduler doesn't necessarily execute the tasks in separate OS threads; actually the built-in scheduler tries to keep the number of threads as close as possible to the number of available processors/cores in the machine. It is however sometimes preferable or necessary to run tasks in separate OS threads - in that case use the <a href="Jibu_Parallel_RunAsThreads@params_Async[].html" target="topic">Jibu.Parallel.RunAsThreads</a> method, that executes tasks in separate OS threads.&nbsp;</p>
+<p class="Element56">
+As mentioned earlier, <a href="Jibu_Future.html" target="topic">Jibu.Future</a> returns a result, so in order to run multiple of such tasks we need a way to receive the results. The <a href="Jibu_Parallel_Gather@params_Future_T_[].html" target="topic">Jibu.Parallel.Gather</a> method executes multiple tasks concurrently and returns an array containing the results.&nbsp;</p>
+<p class="Element56">
+Beside the already mentioned methods for running tasks concurrently, <a href="Jibu_Parallel.html" target="topic">Jibu.Parallel</a> also provides some basic nice to have parallel methods, such as <a href="Jibu_Parallel_For@int@int@int@LoopDelegate.html" target="topic">Jibu.Parallel.For</a> and <a href="Jibu_Parallel_Reduce@int@int@T@int@ReduceDelegate_T_@CombineDelegate_T_.html" target="topic">Jibu.Parallel.Reduce</a>.&nbsp;</p>
+<p class="Element56">
+&nbsp;</p>
+<p class="Element56">
+<i>Channels and Mailboxes:</i>&nbsp;</p>
+<p class="Element56">
+So far we have seen how to define tasks and run them concurrently. Most concurrent programs also include some kind of communication between tasks and <a href="Jibu.html" target="topic">Jibu</a> features two different communication constructs.&nbsp;</p>
+<p class="Element56">
+Every Task has a unique mailbox, and only the Task itself can access the mailbox. Tasks can receive messages by calling <a href="Jibu_Task_Receive.html" target="topic">Jibu.Task.Receive</a> and <a href="Jibu_Task_ReceiveFrom@Address.html" target="topic">Jibu.Task.ReceiveFrom</a>. It's possible to send data to another task-mailbox, given you know it's address (<a href="Jibu_Address.html" target="topic">Jibu.Address</a>), by calling <a href="Jibu_Task_Send@object@Address.html" target="topic">Jibu.Task.Send</a>.&nbsp;</p>
+<p class="Element56">
+Channels provides communication between two or more tasks. The <a href="Jibu_Channel.html" target="topic">Jibu.Channel</a> class features a channel, buffered or non buffered, which allows multiple tasks to read to and write from the channel simultaneously in a safe and intuitive way. Non buffered channels serves as rendezvous channels, thus the <a href="Jibu_Channel_Write@T.html" target="topic">Jibu.Channel.Write</a> call writes data to the channel and blocks until the data is read by a reading task calling <a href="Jibu_Channel_Read.html" target="topic">Jibu.Channel.Read</a>. Buffered channels are similar except that <a href="Jibu_Channel_Write@T.html" target="topic">Jibu.Channel.Write</a> doesn't block unless the buffer is full.&nbsp;</p>
+<p class="Element56">
+&nbsp;</p>
+<p class="Element56">
+<i>Choice:</i>&nbsp;</p>
+<p class="Element56">
+Implementing coordination and synchronization between multiple tasks is often an error prone and time consuming process. <a href="Jibu.html" target="topic">Jibu</a> features the <a href="Jibu_Choice.html" target="topic">Jibu.Choice</a> class that enables the programmer to detect and handle predefined events coming from multiple Jibu.Alternatives.&nbsp;</p>
+<p class="Element56">
+&nbsp;</p>
+<p class="Element56">
+<i>Scheduler:</i>&nbsp;</p>
+<p class="Element56">
+<a href="Jibu.html" target="topic">Jibu</a> comes with an advanced built-in scheduler to facilitate efficient task execution. The scheduler tries to keep the number of OS threads as close to the number of available processors/cores in the machine as possible. The reason for doing this is better performance and memory usage.&nbsp;</p>
+<p class="Element56">
+By implementing an efficient work stealing algorithm the scheduler ensures that all processors are kept busy. Furthermore the scheduler detects all blocked tasks and ensures that the processor is kept busy running other non blocked tasks. That means that tasks waiting for channel input or network input doesn't take up the processor - other tasks are allowed to use the processor.&nbsp;</p>
+<p class="Element56">
+The scheduler is not preemptive, thus tasks are executed until they finish. That means running never ending tasks with the scheduler might keep other tasks from running!&nbsp;</p>
+<p class="Element56">
+&nbsp;</p>
+<p class="Element56">
+<strong>Documentation</strong>&nbsp;</p>
+<p class="Element56">
+This documentation provides a detailed description of each available <a href="Jibu.html" target="topic">Jibu</a> feature as well as some small code snippets for most features. A few example projects are found in the <a href="Jibu.html" target="topic">Jibu</a>/Samples folder and additional documentation and examples are found on www.axon7.com.</div>
+
+<!-- End Client Area -->
+</body></html>
