@@ -123,7 +123,7 @@ not the code.
 
 ## Durability
 
-The repository is already archived by Software Heritage (full git visit, 2024-06-10):
+The repository is archived by Software Heritage (first full git visit, 2024-06-10):
 
 * browse:
   <https://archive.softwareheritage.org/browse/origin/?origin_url=https://github.com/manuc66/Jibu>
