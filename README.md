@@ -128,13 +128,15 @@ The repository is already archived by Software Heritage (full git visit, 2024-06
 * browse:
   <https://archive.softwareheritage.org/browse/origin/?origin_url=https://github.com/manuc66/Jibu>
 
-To archive the current state again after changes:
+To archive the current state again after changes (the parameters must go in the query
+string; a form-encoded body is rejected):
 
 ```sh
-curl -X POST https://archive.softwareheritage.org/api/1/origin/save/ \
-     -d visit_type=git \
-     -d origin_url=https://github.com/manuc66/Jibu
+curl -X POST "https://archive.softwareheritage.org/api/1/origin/save/?origin_url=https%3A%2F%2Fgithub.com%2Fmanuc66%2FJibu&visit_type=git"
 ```
+
+It returns a save request id; `curl https://archive.softwareheritage.org/api/1/origin/save/<id>/`
+reports its progress.
 
 ## License
 
